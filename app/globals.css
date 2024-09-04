@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container-home {
+    background: linear-gradient(135deg, #1a1a1a, #333333);
+    color: #ffffff;
+  }
+  
+  .container-header {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .button {
+    background-color: #4caf50;
+    color: white;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+    transition: all 0.25s;
+    opacity: 0.95;
+  }
+
+  .new-container{
+      background-color: white;
+      color: black;
+  }
+
+  .shake{
+      animation: shake 18s infinite;
+  }
+  @keyframes shake {
+      0%{
+        transform: translateY(15px);
+      }
+      50%{
+        transform: translateY(-15px);
+      }
+      100%{
+        transform: translateY(0);
+      }
+  }
+  
