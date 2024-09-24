@@ -6,6 +6,11 @@
     background: linear-gradient(135deg, #1a1a1a, #333333);
     color: #ffffff;
   }
+
+  textarea:focus {
+    outline: none;
+  }
+  
   
   .container-header {
     padding: 20px;

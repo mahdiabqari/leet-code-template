@@ -1,6 +1,20 @@
 'use client'
 import Link from "next/link";
+import CodeInput from "./components/codeInput";
+import { useState } from "react";
 export default function Home() {
+
+  const [output, setOutput] = useState('result...');
+
+  const handleCompile = (code) => {
+    try {
+      const result = eval(code);
+      setOutput(result);
+    } catch (error) {
+      setOutput(`Error: ${error.message}`);
+    }
+  };
+
   return (
     <div className="container-home min-h-screen">
       
@@ -76,17 +90,15 @@ export default function Home() {
           <p className="text-lg md:text-center text-center text-gray-700 mb-8">We now support 14 popular coding languages. At our core, LeetCode is about developers. Our powerful development tools such as Playground help you test, debug and even write your own projects online.</p>
         </section>
 
-        <div className="code-box w-[90%] md:flex-col flex justify-center items-center">
-          <div className="left md:w-full w-[60%]">
-            <div className="box md:w-[22rem] rounded-xl shadow-sm bg-gray-100 shadow-gray-800 w-[45rem] h-[23rem]">
-              
+        <div className="code-box w-[90%] gap-10 md:flex-col flex justify-center items-center">
+          <div className="left md:w-full w-[60%] md:w-[100%]">
+            <div className="top-color-code md:w-[100%] relative flex items-center px-7 gap-5 top-[41px] rounded-t-xl w-[101%] h-10 bg-black">
+              <div className="color bg-orange-600 rounded-full w-5 h-5"></div>
+              <div className="color bg-blue-600 rounded-full w-5 h-5"></div>
+              <div className="color bg-green-600 rounded-full w-5 h-5"></div>
+              <div className="text-xl text-white">Js</div>
             </div>
-          </div>
-          <div className="right md:hidden w-[20%] flex justify-start mb-auto items-start flex-col">
-            <button className="w-[10rem] py-3 text-left text-blue-400 my-1 rounded-sm shadow-blue-200 shadow-sm">Linked List</button>
-            <button className="w-[10rem] py-3 text-left text-blue-400 my-1 rounded-sm shadow-blue-200 shadow-sm">Binary Tree</button>
-            <button className="w-[10rem] py-3 text-left text-blue-400 my-1 rounded-sm shadow-blue-200 shadow-sm">Fibonacci</button>
-            <button className="mt-4 text-blue-300">Create Playground</button>
+            <CodeInput onCompile={handleCompile} output={output} />
           </div>
         </div>
 
