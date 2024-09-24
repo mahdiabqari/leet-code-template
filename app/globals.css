@@ -8,6 +8,7 @@
   }
 
   textarea:focus {
+    resize: none; /* جلوگیری از تغییر اندازه */
     outline: none;
   }
   
